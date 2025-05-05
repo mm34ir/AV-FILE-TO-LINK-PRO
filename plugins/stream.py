@@ -43,8 +43,8 @@ async def private_receive_handler(c: Client, m: Message):
     try:
         msg = await m.forward(chat_id=BIN_CHANNEL)
         
-        stream = f"{URL}watch/{msg.id}?hash={get_hash(msg)}"
-        download = f"{URL}{msg.id}?hash={get_hash(msg)}"
+        stream = f"{URL}watch/{get_hash(msg)}{msg.id}"
+        download = f"{URL}{get_hash(msg)}{msg.id}"
         file_link = f"https://t.me/{BOT_USERNAME}?start=file_{msg.id}"
         share_link = f"https://t.me/share/url?url={file_link}"
         
